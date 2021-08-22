@@ -45,34 +45,33 @@ def graphicturtle(i):
         x = x - 1
 
 
-def path(s, cd):
-    sl = s.split('/')
-    cdl = cd.split('/')
-    for i in sl:
-        if not i.isalpha():
-            input("insert correct path\n")
-            switch('3')
-    for i in cdl:
-        if i.isalpha() or i == "..":
-            changedirectory(sl, i)
-        else:
-            input("insert correct path\n")
-            switch('3')
-    separators = '/'
-    s = separators.join(sl)
-    print(s)
+class Path:
+    def __init__(self, s, cd):
+        self.s = s
+        self.cd = cd
 
-
-def changedirectory(sl ,cd):
-    while cd:
-        if cd == "..":
-            sl.pop()
-            cd = 0
-        elif cd.isalpha():
-            sl.append(cd)
-            cd = 0
-        else:
-            break
+    def pathcd(self):
+        sl = self.s.split('/')
+        cdl = self.cd.split('/')
+        for i in sl:
+            if not i.isalpha():
+                input("insert correct path\n")
+                switch('4')
+        for i in cdl:
+            if i.isalpha() or i == "..":
+                while i:
+                    if i == "..":
+                        sl.pop()
+                        break
+                    elif i.isalpha():
+                        sl.append(i)
+                        break
+            else:
+                input("insert correct path\n")
+                switch('4')
+        separators = '/'
+        s = separators.join(sl)
+        print(s)
 
 
 def switch(ca):
@@ -93,7 +92,8 @@ def switch(ca):
         elif ca == '4':
             s = input("enter file path\n \t")
             cd = input("change directory\n \t")
-            path(s, cd)
+            Paths = Path(s, cd)
+            Paths.pathcd()
             ca = input("enter problem number to answer\n")
             switch(ca)
         elif ca == '10':
@@ -105,11 +105,13 @@ def switch(ca):
             break
         else:
             print("incorrect case please insert numbers within 1,2 4 and 0 for exit\n \t")
-            ca = int(input("enter problem number to answer\n"))
+            ca = input("enter problem number to answer\n")
             switch(ca)
 
 
 # Press the green button in the gutter to run the script.
+
+
 if __name__ == '__main__':
     print_hi('PyCharm')
     Dict = {}
