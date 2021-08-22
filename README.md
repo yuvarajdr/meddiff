@@ -17,3 +17,6 @@ Path(s, cd) -->s=given parent path from where we have to change directory cd=cha
 
 #0:
 for exit execution
+
+# download file for windows
+https://github.com/yuvarajdr/meddiff/archive/refs/heads/master.zip
