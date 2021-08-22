@@ -40,35 +40,80 @@ def graphicturtle(i):
     bgcolor('black')
     x = i
     while x > 0:
-        left(i)
-        forward(i * 3)
+        left(x)
+        forward(x * 3)
         x = x - 1
 
 
+def path(s, cd):
+    sl = s.split('/')
+    cdl = cd.split('/')
+    for i in sl:
+        if not i.isalpha():
+            input("insert correct path\n")
+            switch('3')
+    for i in cdl:
+        if i.isalpha() or i == "..":
+            changedirectory(sl, i)
+        else:
+            input("insert correct path\n")
+            switch('3')
+    separators = '/'
+    s = separators.join(sl)
+    print(s)
+
+
+def changedirectory(sl ,cd):
+    while cd:
+        if cd == "..":
+            sl.pop()
+            cd = 0
+        elif cd.isalpha():
+            sl.append(cd)
+            cd = 0
+        else:
+            break
+
+
 def switch(ca):
-    if ca == 1:
-        n = int(input("number of dictionary values\n"))
-        for i in range(n):
-            text = input("enter dictionary value with space\n").split()
-            Dict[text[0]] = text[1]
-        dictionary_sort(Dict)
-    elif ca == 2:
-        s = input("enter palindrome string which should be tested\n \t")
-        ispalindrome(s)
-    elif ca == 3:
-        angle = int(input("enter angle to start\n"))
-        graphicturtle(angle)
-    else:
-        print("incorrect case please insert numbers within 1 -2\n \t")
-        ca = int(input("enter problem number to answer"))
-        switch(ca)
+    while ca:
+        if ca == '1':
+            n = int(input("number of dictionary values\n"))
+            for i in range(n):
+                text = input("enter dictionary value with space\n").split()
+                Dict[text[0]] = text[1]
+            dictionary_sort(Dict)
+            ca = input("enter problem number to answer\n")
+            switch(ca)
+        elif ca == '2':
+            s = input("enter palindrome string which should be tested\n \t")
+            ispalindrome(s)
+            ca = input("enter problem number to answer\n")
+            switch(ca)
+        elif ca == '3':
+            s = input("enter file path\n \t")
+            cd = input("change directory\n \t")
+            path(s, cd)
+            ca = input("enter problem number to answer\n")
+            switch(ca)
+        elif ca == '10':
+            angle = int(input("enter angle to start\n"))
+            graphicturtle(angle)
+            ca = input("enter problem number to answer\n")
+            switch(ca)
+        elif ca == '0':
+            break
+        else:
+            print("incorrect case please insert numbers within 1 -3\n \t")
+            ca = int(input("enter problem number to answer\n"))
+            switch(ca)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
     Dict = {}
-    cas = int(input("enter problem number to answer\n \t"))
+    cas = input("enter problem number to answer\n \t")
     switch(cas)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
