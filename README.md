@@ -15,3 +15,5 @@ ispalindrome(s)
 change directory using changedirectory function in Path class
 Path(s, cd) -->s=given parent path from where we have to change directory cd=change directory
 
+#0:
+for exit execution
