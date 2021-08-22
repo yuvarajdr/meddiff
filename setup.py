@@ -8,5 +8,6 @@ setup(
     license='',
     author='yuvaraj',
     author_email='yuve.hlk@gmail.com',
-    description='Dictionary sorting'
+    description='Dictionary sorting',
+    scripts=['main.py']
 )
