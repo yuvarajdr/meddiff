@@ -25,6 +25,11 @@ def dictionary_sort(dictionary):
     print(d)
 
 
+def isPalindrome(s):
+    if s == s[::-1]:
+        print("Yes")
+    else:
+        print("No")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -34,7 +39,9 @@ if __name__ == '__main__':
     for i in range(n):
         text = input("enter dictionary value with space\n").split()
         Dict[text[0]] = text[1]
-
     dictionary_sort(Dict)
+    s = input("enter palindrome string which should be tested")
+    isPalindrome(s)
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
