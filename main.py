@@ -90,7 +90,7 @@ def switch(ca):
             ispalindrome(s)
             ca = input("enter problem number to answer\n")
             switch(ca)
-        elif ca == '3':
+        elif ca == '4':
             s = input("enter file path\n \t")
             cd = input("change directory\n \t")
             path(s, cd)
@@ -104,7 +104,7 @@ def switch(ca):
         elif ca == '0':
             break
         else:
-            print("incorrect case please insert numbers within 1 -3\n \t")
+            print("incorrect case please insert numbers within 1,2 4 and 0 for exit\n \t")
             ca = int(input("enter problem number to answer\n"))
             switch(ca)
 
@@ -113,7 +113,7 @@ def switch(ca):
 if __name__ == '__main__':
     print_hi('PyCharm')
     Dict = {}
-    cas = input("enter problem number to answer\n \t")
+    cas = input("enter problem number 1,2 4 and 0 for exit\n \t")
     switch(cas)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
