@@ -39,6 +39,7 @@ def graphicturtle(i):
         forward(x * 3)
         x = x - 1
 
+
 def parselogfile(logefile):
     regexproperty = '(<property name="(.*?)">(.*?)<\/property>)'
     regexError = '(<Error name="(.*?)">(.*?)<\/Error>)'
@@ -48,19 +49,21 @@ def parselogfile(logefile):
     with logefile as file:
         match_list_error = []
         match_list_warning = []
-        if read_line == True:
-            for match in re.finditer(regexWarning, line, re.S):
+        match_list = []
+        if read_line:
+            for line in file:
+                for match in re.finditer(regexWarning, line, re.S):
                     match_text = match.group()
                     listvariable = match_text[15:-10].split('">')
                     match_list_warning.append(listvariable)
 
-            for match in re.finditer(regexError, line, re.S):
+                for match in re.finditer(regexError, line, re.S):
                     match_text = match.group()
                     print(match_text)
                     listvariable = match_text[13:-9].split('">')
                     match_list_error.append(listvariable)
         else:
-            data = f.read()
+            data = file.read()
             for match in re.finditer(regexproperty, data, re.S):
                 match_text = match.group()
                 match_list.append(match_text)
@@ -121,6 +124,8 @@ def switch(ca):
             f = open(filegiven, 'r')
             parselogfile(f)
             f.close()
+            ca = input("enter problem number to answer\n")
+            switch(ca)
         elif ca == '4':
             s = input("enter file path\n \t")
             cd = input("change directory\n \t")
