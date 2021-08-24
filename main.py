@@ -54,14 +54,16 @@ def parselogfile(logefile):
         match_list_error = []
         match_list_warning = []
         if read_line == True:
-            for line in file:
-                for match in re.finditer(regexWarning, line, re.S):
+            for match in re.finditer(regexWarning, line, re.S):
                     match_text = match.group()
-                    match_list_warning.append(match_text)
+                    listvariable = match_text[15:-10].split('">')
+                    match_list_warning.append(listvariable)
 
-                for match in re.finditer(regexError, line, re.S):
+            for match in re.finditer(regexError, line, re.S):
                     match_text = match.group()
-                    match_list_error.append(match_text)
+                    print(match_text)
+                    listvariable = match_text[13:-9].split('">')
+                    match_list_error.append(listvariable)
         else:
             data = f.read()
             for match in re.finditer(regexproperty, data, re.S):
@@ -69,10 +71,10 @@ def parselogfile(logefile):
                 match_list.append(match_text)
     print("Warning : ")
     for m in match_list_warning:
-        print(m)
+        print(m[0] + " = " + m[1])
     print("Error : ")
     for m in match_list_error:
-        print(m)        
+        print(m[0] + " = " + m[1])        
         
 
 class Path:
