@@ -2,7 +2,7 @@
 <code><Error name="Errorlog2">failed 2nd line</Error></code>
 <code><Warning name="Warninglog3">warning in 3rd line</Warning></code>
 <code><Error name="Errorlog4">failed 4th line</Error></code>
-<code><Warning name="Warninglog4">waring 5th line</Warning></code>
+<code><Warning name="Warninglog4">warning 5th line</Warning></code>
 <code><property name="saveMessage">Hi This is yuvaraj</property></code>
 <code><property name="inputname">Yuvaraj</property></code>
 <code><property name="outputname">Yuvaraj</property></code>
