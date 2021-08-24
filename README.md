@@ -9,7 +9,11 @@ dictionary_sort(Dict) -->Dict=given dictionary
 
 #Problem 2:
 return is given word palindrome or not
-ispalindrome(s)
+ispalindrome(s) -->true or false
+
+#Problem 3:
+return path of log file
+parselogfile(logefile) --> sort only error and warning under the log file
 
 #Problem 4:
 change directory using changedirectory function in Path class
