@@ -6,6 +6,7 @@ from typing import Dict, Any
 from turtle import *
 import re
 
+
 def dictionary_sort(dictionary):
     d = {}
     dkeys = dictionary.values()
@@ -129,8 +130,8 @@ def switch(ca):
         elif ca == '4':
             s = input("enter file path\n \t")
             cd = input("change directory\n \t")
-            Paths = Path(s, cd)
-            Paths.pathcd()
+            paths = Path(s, cd)
+            paths.pathcd()
             ca = input("enter problem number to answer\n")
             switch(ca)
         elif ca == '10':
