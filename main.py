@@ -6,11 +6,6 @@ from typing import Dict, Any
 from turtle import *
 import re
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
 def dictionary_sort(dictionary):
     d = {}
     dkeys = dictionary.values()
@@ -150,8 +145,6 @@ def switch(ca):
 
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
-    Dict = {}
     cas = input("enter problem number 1,2,3,4 and 0 for exit\n \t")
     switch(cas)
 
