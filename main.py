@@ -44,6 +44,36 @@ def graphicturtle(i):
         forward(x * 3)
         x = x - 1
 
+def parselogfile(logefile):
+    regexproperty = '(<property name="(.*?)">(.*?)<\/property>)'
+    regexError = '(<Error name="(.*?)">(.*?)<\/Error>)'
+    regexWarning = '(<Warning name="(.*?)">(.*?)<\/Warning>)'
+    read_line = True
+
+    with logefile as file:
+        match_list_error = []
+        match_list_warning = []
+        if read_line == True:
+            for line in file:
+                for match in re.finditer(regexWarning, line, re.S):
+                    match_text = match.group()
+                    match_list_warning.append(match_text)
+
+                for match in re.finditer(regexError, line, re.S):
+                    match_text = match.group()
+                    match_list_error.append(match_text)
+        else:
+            data = f.read()
+            for match in re.finditer(regexproperty, data, re.S):
+                match_text = match.group()
+                match_list.append(match_text)
+    print("Warning : ")
+    for m in match_list_warning:
+        print(m)
+    print("Error : ")
+    for m in match_list_error:
+        print(m)        
+        
 
 class Path:
     def __init__(self, s, cd):
@@ -89,6 +119,11 @@ def switch(ca):
             ispalindrome(s)
             ca = input("enter problem number to answer\n")
             switch(ca)
+        elif ca == '3':
+            filegiven = input("file name or path of log file\n")
+            f = open(filegiven, 'r')
+            parselogfile(f)
+            f.close()
         elif ca == '4':
             s = input("enter file path\n \t")
             cd = input("change directory\n \t")
@@ -115,7 +150,7 @@ def switch(ca):
 if __name__ == '__main__':
     print_hi('PyCharm')
     Dict = {}
-    cas = input("enter problem number 1,2 4 and 0 for exit\n \t")
+    cas = input("enter problem number 1,2,3,4 and 0 for exit\n \t")
     switch(cas)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
